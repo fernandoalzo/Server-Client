@@ -27,12 +27,6 @@ while True:
 	# Mantiene una lista de posible flujos de entrada
 	sockets_list = [sys.stdin, server]
 
-	"""Hay dos posible situaciones de entrada. O el usuario quiere dar una entrada manual para
-	enviar a otras personas o el servidor está enviando un mensaje para ser impreso en pantalla.
-	Selecciona las devoluciones de sockets_list, la stream que es el lector para la entrada.
-	Entonces, por ejemplo si el servidor quiere enviar un mensaje, entonces la condicion if
-	se mantendrá verdadera. Si el usuario desea enviar un mensaje, la condición se evaluará como 
-	verdadera """
 	read_sockets, write_socket, error_socket = select.select(sockets_list, [], [])
 	
 	for socks in read_sockets:
